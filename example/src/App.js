@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 import ExampleComponent from 'react-arc-text'
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
-  }
+const App = () =>  {
+
+
+  const [text, setText] = useState('');
+
+  return (
+    <div>
+      <ExampleComponent text={text} />
+    </div>
+  )
+
 }
+
+export default App;

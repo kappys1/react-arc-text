@@ -57,5 +57,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "arc-text": "^1.0.1"
+  }
 }
