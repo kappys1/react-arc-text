@@ -10,7 +10,6 @@ git config --global user.email "alexsbd1@gmail.com"
 git config --global user.name "alex marcos - Travis CI"
 
 # build (CHANGE THIS)
-make
 
 # deploy
 cd example/build
