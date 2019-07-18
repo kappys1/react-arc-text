@@ -1,10 +1,13 @@
 {
   "name": "react-arc-text",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "",
-  "author": "alex marcos &lt;alexsbd1@gmail.com&gt;",
+  "author": "alex marcos <alexsbd1@gmail.com>",
   "license": "MIT",
-  "repository": "alex marcos &lt;alexsbd1@gmail.com&gt;/react-arc-text",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kappys1/react-arc-text.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -12,14 +15,44 @@
     "node": ">=8",
     "npm": ">=5"
   },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c",
+    "build": "rollup -c && cp README.md dist/README.md && cp package.json dist/package.json",
     "start": "rollup -c -w",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "precommit": "lint-staged",
+    "travis-deploy-once": "travis-deploy-once",
+    "prepush": "npm run build",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
@@ -28,6 +61,12 @@
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@semantic-release/commit-analyzer": "^6.2.0",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/npm": "^5.1.13",
+    "@semantic-release/release-notes-generator": "^7.2.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -35,6 +74,10 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "cross-env": "^5.1.4",
+    "colors": "^1.3.2",
+    "commitizen": "^3.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.1",
     "eslint": "^5.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
@@ -53,7 +96,9 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-url": "^1.4.0"
+    "rollup-plugin-url": "^1.4.0",
+    "semantic-release": "^15.13.18",
+    "travis-deploy-once": "^5.0.9"
   },
   "files": [
     "dist"
