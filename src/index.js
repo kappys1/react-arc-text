@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import ArcText from 'arc-text'
 
 export default class ReactArcText extends Component {
-
   static propTypes = {
     text: PropTypes.string,
     class: PropTypes.string,

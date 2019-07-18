@@ -8,6 +8,18 @@
     "type": "git",
     "url": "https://github.com/kappys1/react-arc-text.git"
   },
+  "keywords": [
+    "arc",
+    "text",
+    "curve",
+    "arc-type",
+    "arc-text",
+    "curve-type",
+    "curve-text",
+    "react",
+    "react-curve-text",
+    "react-arc-text"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -16,7 +28,8 @@
     "npm": ">=5"
   },
   "lint-staged": {
-    "{src,test}/**/*.ts": [
+    "**/*.js": [
+      "eslint --fix",
       "prettier --write",
       "git add"
     ]
@@ -49,9 +62,10 @@
     "deploy": "gh-pages -d example/build",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
-    "precommit": "lint-staged",
+    "precommit": "eslint ./src/*.js",
     "travis-deploy-once": "travis-deploy-once",
     "prepush": "npm run build",
+    "prettier": "prettier --write",
     "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "peerDependencies": {
@@ -60,24 +74,19 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@svgr/rollup": "^2.4.1",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^7.1.2",
-    "@semantic-release/commit-analyzer": "^6.2.0",
-    "@semantic-release/git": "^7.0.16",
-    "@semantic-release/npm": "^5.1.13",
-    "@semantic-release/release-notes-generator": "^7.2.1",
+    "@svgr/rollup": "^2.4.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^5.1.4",
     "colors": "^1.3.2",
     "commitizen": "^3.0.0",
+    "cross-env": "^5.1.4",
     "cz-conventional-changelog": "^2.1.0",
-    "husky": "^1.0.1",
     "eslint": "^5.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
@@ -87,6 +96,8 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
+    "husky": "^1.0.1",
+    "lint-staged": "^9.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
