@@ -13,10 +13,10 @@ jobs:
   include:
     - stage: install dependencies
       script: npm install
-    - stage: predeploy
-      script: npm run predeploy
     - stage: prepare
       script: npm run prepare
+    - stage: predeploy
+      script: npm run predeploy
     - stage: "deploy GH-PAGES to production"
       if: branch = master
       script: npm run deploy
@@ -26,7 +26,7 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        before_script: cd dist
+        # before_script: cd dist
         script:
           - npx semantic-release
 branches:

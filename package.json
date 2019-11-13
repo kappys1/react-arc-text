@@ -116,7 +116,9 @@
     "travis-deploy-once": "^5.0.9"
   },
   "files": [
-    "dist"
+    "dist",
+    "package.json",
+    "README.md"
   ],
   "dependencies": {
     "arc-text": "^1.0.1"
