@@ -13,8 +13,8 @@ jobs:
   include:
     - stage: install dependencies
       script: npm install
-    - stage: prepare
-      script: npm run prepare
+    - stage: prepare build
+      script: npm run prepareBuild
     - stage: predeploy
       script: npm run predeploy
     - stage: "deploy GH-PAGES to production"

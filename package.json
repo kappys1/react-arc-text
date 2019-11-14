@@ -57,7 +57,7 @@
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c && cp README.md dist/README.md && cp package.json dist/package.json",
     "start": "rollup -c -w",
-    "prepare": "npm run build",
+    "prepareBuild": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "sh ./tools/gh-pages-publish.sh",
     "commit": "git-cz",
