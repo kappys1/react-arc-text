@@ -64,7 +64,6 @@
     "semantic-release": "semantic-release",
     "precommit": "eslint ./src/*.js",
     "travis-deploy-once": "travis-deploy-once",
-    "prepush": "npm run build",
     "prettier": "prettier --write",
     "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },

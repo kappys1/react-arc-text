@@ -20,6 +20,8 @@ jobs:
     - stage: "deploy GH-PAGES to production"
       if: branch = master
       script: npm run deploy
+    - stage: watch folder dist
+      script: ls dist
     - stage: npm release
       if: branch = master
       script: skip
