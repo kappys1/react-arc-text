@@ -26,7 +26,7 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        # before_script: cd dist
+        before_script: cd dist
         script:
           - npx semantic-release
 branches:
