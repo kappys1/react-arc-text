@@ -59,6 +59,7 @@
     "start": "rollup -c -w",
     "prepareBuild": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
+    "prepare": "npm run build",
     "deploy": "sh ./tools/gh-pages-publish.sh",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
