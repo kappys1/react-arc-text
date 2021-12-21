@@ -55,10 +55,11 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c && cp README.md dist/README.md && cp package.json dist/package.json",
+    "build": "rollup -c",
     "start": "rollup -c -w",
     "prepareBuild": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
+    "prepare": "npm run build",
     "deploy": "sh ./tools/gh-pages-publish.sh",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
